@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="reddit">
+    <head>
+        <title>Newest /r/news Headlines</title>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="reddit.js"></script>
+    </head>
+    
+    <body>
+        <div ng-controller="News">
+            <p>The latest submissions to <a href="https://www.reddit.com/r/news" target="_blank">/r/News</a></p>
+            <div>
+                <ul class="listing">
+                    <li ng-repeat="x in listing.data.children">
+                        <span><a href="{{x.data.url}}" target="_blank">{{x.data.title}}</a></span>
+                        <p>
+                            Submitted by <a href="https://www.reddit.com/user/{{x.data.author}}" target="_blank">{{x.data.author}}</a>
+                            at {{x.data.created_utc * 1000 | date:'MM/dd/yyyy @ h:mma'}} 
+                            <a href="https://www.reddit.com{{x.data.permalink}}" target="_blank">View on reddit</a>
+                            <!-- Reddit uses a unix timestamp, so to get Angular to convert it multiply by 1000> 
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
