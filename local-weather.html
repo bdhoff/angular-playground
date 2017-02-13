@@ -4,22 +4,29 @@
         <title>Weather where I live</title>
         <script src="bower_components/angular/angular.js"></script>
         <script src="local-weather.js"></script>
+        <link rel="stylesheet" type="text/css" href="local-weather.css">
     </head>
     
     <body>
         <div ng-controller="Weather">
-            <p>{{localData.title}}</p>
-            <p>{{localData.item.title}}</p>
-            <ul>
-                <li>Current temperature: {{localData.item.condition.temp}}&#x00B0 F</li>
-                <li>Skies: {{localData.item.condition.text}}</li>
-            </ul>
-            <p>10-day forecast</p>
-            <ul>
-                <li ng-repeat="day in localData.item.forecast">
-                    {{day.date}}: High: {{day.high}}&#x00B0 F, Low: {{day.low}}&#x00B0 F, Conditions: {{day.text}}
-                </li>
-            </ul>
+            <h1>{{localData.title}}</h1>
+            <p />
+            <div>
+                <h2>{{localData.item.title}}</h2>
+                <ul>
+                    <li>Current temperature: {{localData.item.condition.temp}}&#x00B0 F</li>
+                    <li>Skies: {{localData.item.condition.text}}</li>
+                </ul> 
+            </div>
+            <p />
+            <div>
+                <h2>10-day forecast</h2>
+                <ul>
+                    <li ng-repeat="day in localData.item.forecast">
+                        {{day.date}}: High: {{day.high}}&#x00B0 F, Low: {{day.low}}&#x00B0 F, Conditions: {{day.text}}
+                    </li>
+                </ul>
+            </div>
          </div>
     </body>
 </html>
